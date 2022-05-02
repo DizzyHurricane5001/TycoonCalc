@@ -28,7 +28,7 @@
 
 
         for (var i = 0; i < materialCalc.length; i++) {
-            document.getElementById(materialCalc[i][3]).value = materialCalc[i][0] + " " + materialCalc[i][1];
+            document.getElementById(materialCalc[i][3]).value = materialCalc[i][0] + " " + materialCalc[i][1] + " (" + Math.round(materialCalc[i][2] * materialCalc[i][0] / trailerCapacity) + " Trips required with " + trailerCapacity + "KG of storage!)";
             //debug block:
             console.log("You'll need " + materialCalc[i][0] + " " + materialCalc[i][1] + " Which will take " +
                 Math.round(materialCalc[i][2] * materialCalc[i][0] / trailerCapacity) + " trips!</br>");
@@ -43,19 +43,19 @@
 </head>
 <body>
 
-<input type="number" id="concreteVal">
+<input type="number" id="concreteVal" placeholder="Concrete Amount">
 <button type="button" onclick="onReady()">Calculate!</button><br/>
 
-<input type="text" id="CementTextBox"/><br/>
-<input type="text" id="SandTextBox" /><br/>
-<input type="text" id="SawdustTextBox" /><br/>
-<input type="text" id="TreatedWTextBox" /><br/>
-<input type="text" id="UTWTextBox" /><br/>
-<input type="text" id="AcidTextBox" /><br/>
-<input type="text" id="TWTextBox" /><br/>
-<input type="text" id="LogTextBox" /><br/>
-<input type="text" id="QRTextBox" /><br/>
-<input type="text" id="GravelTextBox" /><br/>
+<input type="text" id="CementTextBox" size="100"/><br/>
+<input type="text" id="SandTextBox" size="100"/><br/>
+<input type="text" id="SawdustTextBox" size="100"/><br/>
+<input type="text" id="TreatedWTextBox" size="100"/><br/>
+<input type="text" id="UTWTextBox" size="100"/><br/>
+<input type="text" id="AcidTextBox" size="100"/><br/>
+<input type="text" id="TWTextBox" size="100"/><br/>
+<input type="text" id="LogTextBox" size="100"/><br/>
+<input type="text" id="QRTextBox" size="100"/><br/>
+<input type="text" id="GravelTextBox" size="100"/><br/>
 </body>
 </html>
 ////////////
