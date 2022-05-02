@@ -7,26 +7,29 @@
 
 <html lang="en">
 <script>
-    var concreteWanted = 1000;
-    var trailerCapacity = 10000;
-
-    const materialCalc = [ // calc for value : item name : weight : HTML Textbox ID
-        [concreteWanted * 5, "Cement Mix", 50, "CementTextBox"],
-        [concreteWanted * 25, "Sand", 50, "SandTextBox"],
-        [concreteWanted * 10, "Sawdust", 50, "SawdustTextBox"],
-        [concreteWanted, "Treated Water", 50, "TreatedWTextBox"],
-        [concreteWanted, "Untreated Water", 50, "UTWTextBox"],
-        [concreteWanted, "Acid", 50, "AcidTextBox"],
-        [Math.round(concreteWanted * 3.98), "Toxic Waste", 50, "TWTextBox"],
-        [concreteWanted, "Logs", 50, "LogTextBox"],
-        [Math.round(concreteWanted * 3.5), "Quarry Rubble", 150, "QRTextBox"],
-        [Math.round(concreteWanted * 41.6), "Gravel", 50, "GravelTextBox"]
-    ]
     function onReady() {
+
+        var trailerCapacity = 10000;
+        var concreteWanted = document.getElementById("concreteVal").value;
+
+        const materialCalc = [ // calc for value : item name : weight : HTML Textbox ID
+            [concreteWanted * 5, "Cement Mix", 50, "CementTextBox"],
+            [concreteWanted * 25, "Sand", 50, "SandTextBox"],
+            [concreteWanted * 10, "Sawdust", 50, "SawdustTextBox"],
+            [concreteWanted, "Treated Water", 50, "TreatedWTextBox"],
+            [concreteWanted, "Untreated Water", 50, "UTWTextBox"],
+            [concreteWanted, "Acid", 50, "AcidTextBox"],
+            [Math.round(concreteWanted * 3.98), "Toxic Waste", 50, "TWTextBox"],
+            [concreteWanted, "Logs", 50, "LogTextBox"],
+            [Math.round(concreteWanted * 3.5), "Quarry Rubble", 150, "QRTextBox"],
+            [Math.round(concreteWanted * 41.6), "Gravel", 50, "GravelTextBox"]
+        ]
+
+
+
         for (var i = 0; i < materialCalc.length; i++) {
             document.getElementById(materialCalc[i][3]).value = materialCalc[i][0] + " " + materialCalc[i][1];
-
-            //test block:
+            //debug block:
             console.log("You'll need " + materialCalc[i][0] + " " + materialCalc[i][1] + " Which will take " +
                 Math.round(materialCalc[i][2] * materialCalc[i][0] / trailerCapacity) + " trips!</br>");
         }
@@ -40,6 +43,7 @@
 </head>
 <body>
 
+<input type="number" id="concreteVal">
 <button type="button" onclick="onReady()">Calculate!</button><br/>
 
 <input type="text" id="CementTextBox"/><br/>
