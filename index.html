@@ -28,7 +28,9 @@
 
 
         for (var i = 0; i < materialCalc.length; i++) {
-            document.getElementById(materialCalc[i][3]).value = materialCalc[i][0] + " " + materialCalc[i][1] + " (" + Math.round(materialCalc[i][2] * materialCalc[i][0] / trailerCapacity) + " Trips required with " + trailerCapacity + "KG of storage!)";
+            document.getElementById(materialCalc[i][3]).value = materialCalc[i][0] + " " + materialCalc[i][1] + 
+                " (" + Math.round(materialCalc[i][2] * materialCalc[i][0] / trailerCapacity) + " Trips required with " + trailerCapacity + "KG of storage!)";
+            
             //debug block:
             console.log("You'll need " + materialCalc[i][0] + " " + materialCalc[i][1] + " Which will take " +
                 Math.round(materialCalc[i][2] * materialCalc[i][0] / trailerCapacity) + " trips!</br>");
