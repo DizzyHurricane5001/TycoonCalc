@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 
 <!-- @author: Tom B
-1) Missing actual item weights in matericalCalc array
+1) Missing item weights in matericalCalc array
 2) Gravel/Quarry Rubble calculations might need further testing for accuracy at higher amounts of concrete.
 -->
 
 <html lang="en">
 <script>
-    var concreteWanted = 1000; // pass from form
-    var trailerCapacity = 10000; // pass from form
+    var concreteWanted = 1000;
+    var trailerCapacity = 10000;
 
     const materialCalc = [ // calc for value : item name : weight : HTML Textbox ID
-        [concreteWanted * 5, "Cement Mix", 50], "CementTextBox",
+        [concreteWanted * 5, "Cement Mix", 50, "CementTextBox"],
         [concreteWanted * 25, "Sand", 50, "SandTextBox"],
         [concreteWanted * 10, "Sawdust", 50, "SawdustTextBox"],
-        [concreteWanted, "Treated Water", 50], "TreatedWTextBox",
-        [concreteWanted, "Untreated Water", 50], "UTWTextBox",
-        [concreteWanted, "Acid", 50], "AcidTextBox",
+        [concreteWanted, "Treated Water", 50, "TreatedWTextBox"],
+        [concreteWanted, "Untreated Water", 50, "UTWTextBox"],
+        [concreteWanted, "Acid", 50, "AcidTextBox"],
         [Math.round(concreteWanted * 3.98), "Toxic Waste", 50, "TWTextBox"],
         [concreteWanted, "Logs", 50, "LogTextBox"],
         [Math.round(concreteWanted * 3.5), "Quarry Rubble", 150, "QRTextBox"],
         [Math.round(concreteWanted * 41.6), "Gravel", 50, "GravelTextBox"]
     ]
+    function onReady() {
+        for (var i = 0; i < materialCalc.length; i++) {
+            document.getElementById(materialCalc[i][3]).value = materialCalc[i][0] + " " + materialCalc[i][1];
 
-    for (var i = 0; i < materialCalc.length; i++) {
-        document.write("You'll need " + materialCalc[i][0] + " " + materialCalc[i][1] + " Which will take " +
-            Math.round(materialCalc[i][2] * materialCalc[i][0] / trailerCapacity) + " trips!</br>");
-
-        document.getElementById(materialCalc[i][3]).value = materialCalc[i][0]; // example usage for textboxes
+            //test block:
+            console.log("You'll need " + materialCalc[i][0] + " " + materialCalc[i][1] + " Which will take " +
+                Math.round(materialCalc[i][2] * materialCalc[i][0] / trailerCapacity) + " trips!</br>");
+        }
     }
 
 </script>
@@ -38,10 +40,20 @@
 </head>
 <body>
 
+<button type="button" onclick="onReady()">Calculate!</button><br/>
+
+<input type="text" id="CementTextBox"/><br/>
+<input type="text" id="SandTextBox" /><br/>
+<input type="text" id="SawdustTextBox" /><br/>
+<input type="text" id="TreatedWTextBox" /><br/>
+<input type="text" id="UTWTextBox" /><br/>
+<input type="text" id="AcidTextBox" /><br/>
+<input type="text" id="TWTextBox" /><br/>
+<input type="text" id="LogTextBox" /><br/>
+<input type="text" id="QRTextBox" /><br/>
+<input type="text" id="GravelTextBox" /><br/>
 </body>
 </html>
-
-
 ////////////
 
 Output:
