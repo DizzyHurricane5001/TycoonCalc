@@ -2,32 +2,34 @@
 // @author: Tom B
 <html lang="en">
 <script>
-    var concreteWanted = 1000;
-    var trailerCapacity = 10000;
+    var concreteWanted = 1000; // pass from form
+    var trailerCapacity = 10000; // pass from form
 
-    const materialCalc = [ // calc for value : item name : weight
-        [concreteWanted * 5, "Cement Mix", 50],
-        [concreteWanted * 25, "Sand", 50],
-        [concreteWanted * 10, "Sawdust", 50],
-        [concreteWanted, "Treated Water", 50],
-        [concreteWanted, "Untreated Water", 50],
-        [concreteWanted, "Acid", 50],
-        [Math.round(concreteWanted * 3.98), "Toxic Waste", 50],
-        [concreteWanted, "Logs", 50],
-        [Math.round(concreteWanted * 3.5), "Quarry Rubble", 50],
-        [Math.round(concreteWanted * 41.6), "Gravel", 50]
+    const materialCalc = [ // calc for value : item name : weight : HTML Textbox ID
+        [concreteWanted * 5, "Cement Mix", 50], "CementTextBox",
+        [concreteWanted * 25, "Sand", 50, "SandTextBox"],
+        [concreteWanted * 10, "Sawdust", 50, "SawdustTextBox"],
+        [concreteWanted, "Treated Water", 50], "TreatedWTextBox",
+        [concreteWanted, "Untreated Water", 50], "UTWTextBox",
+        [concreteWanted, "Acid", 50], "AcidTextBox",
+        [Math.round(concreteWanted * 3.98), "Toxic Waste", 50, "TWTextBox"],
+        [concreteWanted, "Logs", 50, "LogTextBox"],
+        [Math.round(concreteWanted * 3.5), "Quarry Rubble", 50, "QRTextBox"],
+        [Math.round(concreteWanted * 41.6), "Gravel", 50, "GravelTextBox"]
     ]
 
     for (var i = 0; i < materialCalc.length; i++) {
         document.write("You'll need " + materialCalc[i][0] + " " + materialCalc[i][1] + " Which will take " +
             Math.round(materialCalc[i][2] * materialCalc[i][0] / trailerCapacity) + " trips!</br>");
+
+        document.getElementById(materialCalc[i][3]).value = materialCalc[i][0]; // example usage for textboxes
     }
 
 </script>
 
 <head>
     <meta charset="UTF-8">
-    <title>Transport Tycoon Calculator Test</title>
+    <title>Title</title>
 </head>
 <body>
 
