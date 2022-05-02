@@ -30,7 +30,7 @@
         for (var i = 0; i < materialCalc.length; i++) {
             var runsRequired = Math.round(materialCalc[i][2] * materialCalc[i][0] / trailerCapacity);
             
-            if (runsRequired < 1){ // Concrete value under 60 causes math.round to round the total runs down needed to zero with the MK14 
+            if (runsRequired < 1){ // Larger trailers and low amts of concrete get rounded down to 0 runs required when it is always at least 1
                 runsRequired = 1;
             }
             document.getElementById(materialCalc[i][3]).value = materialCalc[i][0] + " " + materialCalc[i][1] +
