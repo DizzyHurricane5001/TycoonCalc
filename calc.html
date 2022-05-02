@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-// @author: Tom B
+
+<!-- @author: Tom B
+1) Missing item weights in matericalCalc array
+2) Gravel/Quarry Rubble calculations might need further testing for accuracy at higher amounts of concrete.
+-->
+
 <html lang="en">
 <script>
     var concreteWanted = 1000; // pass from form
@@ -14,7 +19,7 @@
         [concreteWanted, "Acid", 50], "AcidTextBox",
         [Math.round(concreteWanted * 3.98), "Toxic Waste", 50, "TWTextBox"],
         [concreteWanted, "Logs", 50, "LogTextBox"],
-        [Math.round(concreteWanted * 3.5), "Quarry Rubble", 50, "QRTextBox"],
+        [Math.round(concreteWanted * 3.5), "Quarry Rubble", 150, "QRTextBox"],
         [Math.round(concreteWanted * 41.6), "Gravel", 50, "GravelTextBox"]
     ]
 
@@ -29,7 +34,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Transport Tycoon Calculator</title>
+    <title>Transport Tycoon Calculator (Concrete)</title>
 </head>
 <body>
 
