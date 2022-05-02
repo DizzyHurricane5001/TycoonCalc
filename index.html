@@ -3,7 +3,6 @@
 <!-- @author: Tom B
 1) Missing item weights in matericalCalc array
 2) Gravel/Quarry Rubble calculations might need further testing for accuracy at higher amounts of concrete.
-3) Few quirks with low concrete runs, i.e 0 runs required for logs when doing < 70 concrete because the required amount doesn't fill trailer
 -->
 
 <html lang="en">
@@ -29,12 +28,17 @@
 
 
         for (var i = 0; i < materialCalc.length; i++) {
-            document.getElementById(materialCalc[i][3]).value = materialCalc[i][0] + " " + materialCalc[i][1] + 
-                " (" + Math.round(materialCalc[i][2] * materialCalc[i][0] / trailerCapacity) + " Trips required with " + trailerCapacity + "KG of storage!)";
+            var runsRequired = Math.round(materialCalc[i][2] * materialCalc[i][0] / trailerCapacity);
             
+            if (runsRequired < 1){
+                runsRequired = 1;
+            }
+            document.getElementById(materialCalc[i][3]).value = materialCalc[i][0] + " " + materialCalc[i][1] +
+                " (" + runsRequired + " Trips required with " + trailerCapacity + "KG of storage!)";
+
             //debug block:
             console.log("You'll need " + materialCalc[i][0] + " " + materialCalc[i][1] + " Which will take " +
-                Math.round(materialCalc[i][2] * materialCalc[i][0] / trailerCapacity) + " trips!</br>");
+                runsRequired + " trips!</br>");
         }
     }
 
