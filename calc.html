@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+// @author: Tom B
+<html lang="en">
+<script>
+    var concreteWanted = 1000;
+    var trailerCapacity = 10000;
+
+    const materialCalc = [ // calc for value : item name : weight
+        [concreteWanted * 5, "Cement Mix", 50],
+        [concreteWanted * 25, "Sand", 50],
+        [concreteWanted * 10, "Sawdust", 50],
+        [concreteWanted, "Treated Water", 50],
+        [concreteWanted, "Untreated Water", 50],
+        [concreteWanted, "Acid", 50],
+        [Math.round(concreteWanted * 3.98), "Toxic Waste", 50],
+        [concreteWanted, "Logs", 50],
+        [Math.round(concreteWanted * 3.5), "Quarry Rubble", 50],
+        [Math.round(concreteWanted * 41.6), "Gravel", 50]
+    ]
+
+    for (var i = 0; i < materialCalc.length; i++) {
+        document.write("You'll need " + materialCalc[i][0] + " " + materialCalc[i][1] + " Which will take " +
+            Math.round(materialCalc[i][2] * materialCalc[i][0] / trailerCapacity) + " trips!</br>");
+    }
+
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Transport Tycoon Calculator Test</title>
+</head>
+<body>
+
+</body>
+</html>
